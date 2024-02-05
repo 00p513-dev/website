@@ -62,6 +62,8 @@
 			my spare time including my custom ROM linked in the header.</p>
 		<p>If you want to contact me, the best way is to join my Telegram group.</p>
 
+		<hr size="2" width="100%" color="#fff">
+		
 		<!--Tube status -->
 		<h2>Tube Status</h2>
 		<?php
