@@ -12,9 +12,36 @@
 			background-color: #663366;
 		}
 
-		a:link {color: #ccccff;}
-		a:active {color: #ffcccc;}
-		a:visited {color: #9999ff;}
+		a:link {
+			color: #ccccff;
+		}
+
+		a:active {
+			color: #ffcccc;
+		}
+
+		a:visited {
+			color: #9999ff;
+		}
+
+		.good-service {
+			color: #66ff66;
+		}
+
+		.minor-delays,
+		.special-service,
+		.reduced-service {
+			color: #ffcc66;
+		}
+
+		.severe-delays,
+		.part-closure,
+		.planned-closure,
+		.part-suspended,
+		.service-suspended,
+		.service-closed {
+			color: #ff6666;
+		}
 	</style>
 </head>
 
@@ -35,6 +62,22 @@
 			my spare time including my custom ROM linked in the header.</p>
 		<p>If you want to contact me, the best way is to join my Telegram group.</p>
 
+		<!--Tube status -->
+		<h2>Tube Status</h2>
+		<?php
+		// Fetch tube status data
+		$tube_data = file_get_contents('https://api.tfl.gov.uk/Line/Mode/tube/Status');
+		$tube_status = json_decode($tube_data, true);
+
+		// Display tube status
+		foreach ($tube_status as $line) {
+			$name = $line['name'];
+			$status = $line['lineStatuses'][0]['statusSeverityDescription'];
+			$statusClass = strtolower(str_replace(' ', '-', $status));
+
+			echo "<span class='$statusClass'>$name: $status</span><br>";
+		}
+		?>
 		<!--Train pictures-->
 		<hr size="2" width="100%" color="#fff">
 
