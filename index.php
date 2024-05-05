@@ -68,7 +68,7 @@
 		<h2>Tube Status</h2>
 		<?php
 		// Fetch tube status data
-		$tube_data = file_get_contents('https://api.tfl.gov.uk/Line/Mode/tube/Status');
+		$tube_data = file_get_contents('https://api.tfl.gov.uk/Line/Mode/tube,overground,elizabeth-line,dlr,tram/Status');
 		$tube_status = json_decode($tube_data, true);
 
 		// Display tube status
@@ -80,6 +80,9 @@
 			echo "<span class='$statusClass'>$name: $status</span><br>";
 		}
 		?>
+		<p>For more information visit <a href="https://tfl.gov.uk/tube-dlr-overground/status/">Transport for London Status</a></p>
+
+
 		<!--Train pictures-->
 		<hr size="2" width="100%" color="#fff">
 
