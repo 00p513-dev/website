@@ -3,26 +3,65 @@
 
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="title" content="amy's website">
 	<title>amy's website</title>
 
 	<style>
 		body {
 			font-family: 'Times New Roman', Times, serif;
-			color: #ffffff;
-			background-color: #663366;
+			color: #000000;
+			background-color: #E8AEE8;
 		}
 
 		a:link {
-			color: #ccccff;
+			color: #000066;
 		}
 
 		a:active {
-			color: #ffcccc;
+			color: #660000;
 		}
 
 		a:visited {
-			color: #9999ff;
+			color: #333366;
 		}
+
+		.good-service {
+			color: #004700;
+		}
+
+		.minor-delays,
+		.special-service,
+		.reduced-service {
+			color: #8A4000;
+		}
+
+		.severe-delays,
+		.part-closure,
+		.planned-closure,
+		.part-suspended,
+		.service-suspended,
+		.service-closed,
+		.suspended {
+			color: #700000;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				color: #ffffff;
+				background-color: #512951;
+			}
+
+			a:link {
+				color: #ccccff;
+			}
+
+			a:active {
+				color: #ffcccc;
+			}
+
+			a:visited {
+				color: #9999ff;
+			}
 
 		.good-service {
 			color: #66ff66;
@@ -39,8 +78,10 @@
 		.planned-closure,
 		.part-suspended,
 		.service-suspended,
-		.service-closed {
+		.service-closed,
+		.suspended {
 			color: #ff6666;
+		}
 		}
 	</style>
 </head>
@@ -50,41 +91,52 @@
 		<!--Header-->
 		<h1 align="center">amy's website</h1>
 		<h2 align="center">
-			<a href="https://t.me/amyschat">Telegram Group</a> | <a href="https://amyrom.tech">amyROM</a> | <a
-				href="https://github.com/00p513-dev">GitHub</a> | <a href="/gbook/gbook.php">Guestbook</a>
+			<a href="https://t.me/amyschat">Telegram Group</a> | <a href="https://frosty.mobile">Frosty</a> | <a
+				href="https://github.com/00p513-dev">GitHub</a> | <a href="#">Guestbook</a>
 		</h2>
 
 		<!--Main body-->
-		<hr size="2" width="100%" color="#fff">
+		<hr size="2" width="100%" color="#333333">
+		<h2>Welcome!</h2>
 
 		<p>Hello there!! I'm Amy and this is my website.</p>
-		<p>I am studying with the <a href="https://www.open.ac.uk/">Open University</a>, and work on various projects in
-			my spare time including my custom ROM linked in the header.</p>
+		<p>I wrote this with some php because I thought it would be kinda nice to have a webpage that works on older browsers. If you get this page to load on something interesting I would love to see a picture!<p>
 		<p>If you want to contact me, the best way is to join my Telegram group.</p>
 
-		<hr size="2" width="100%" color="#fff">
+		<hr size="2" width="100%" color="#333333">
+
+		<h2>Site News</h2>
+		<h3>20th June 2026</h3>
+		<ul>
+			<li>Guestbook temporarily offline after moving to new server</li>
+			<li>Site now hosted at <a href="https://amyk.ing">amyk.ing</a>, non-HSTS domain eta soon?</li>
+			<li>Small fixes to tube widget</li>
+			<li>Dark mode support</li>
+		</ul>
+
+		<hr size="2" width="100%" color="#333333">
 		
 		<!--Tube status -->
 		<h2>Tube Status</h2>
 		<?php
-		// Fetch tube status data
-		$tube_data = file_get_contents('https://api.tfl.gov.uk/Line/Mode/tube,overground,elizabeth-line,dlr,tram/Status');
-		$tube_status = json_decode($tube_data, true);
+			// Fetch tube status data
+			$tube_data = file_get_contents('https://api.tfl.gov.uk/Line/Mode/tube,overground,elizabeth-line,dlr,tram/Status');
+			$tube_status = json_decode($tube_data, true);
 
-		// Display tube status
-		foreach ($tube_status as $line) {
-			$name = $line['name'];
-			$status = $line['lineStatuses'][0]['statusSeverityDescription'];
-			$statusClass = strtolower(str_replace(' ', '-', $status));
+			// Display tube status
+			foreach ($tube_status as $line) {
+				$name = $line['name'];
+				$status = $line['lineStatuses'][0]['statusSeverityDescription'];
+				$statusClass = strtolower(str_replace(' ', '-', $status));
 
-			echo "<span class='$statusClass'>$name: $status</span><br>";
-		}
+				echo "<span class='$statusClass'>$name: $status</span><br>";
+			}
 		?>
 		<p>For more information visit <a href="https://tfl.gov.uk/tube-dlr-overground/status/">Transport for London Status</a></p>
 
 
 		<!--Train pictures-->
-		<hr size="2" width="100%" color="#fff">
+		<hr size="2" width="100%" color="#333333">
 
 		<p>Enjoy some train pictures!</p>
 		<table width="100%" cellspacing="2" cellpadding="2" border="1">
@@ -112,16 +164,20 @@
 		</table>
 
 		<!--Footer-->
-		<hr size="2" width="100%">
+		<hr size="2" width="100%" color="#333333">
 
-		<div align="center"><img src="/gif/anyie_anim.gif" title="Any Browser" alt="Any Browser" width="88" hspace="2"
+		<div align="center">
+			<img src="/gif/anyie_anim.gif" title="Any Browser" alt="Any Browser" width="88" hspace="2"
 				height="31">
-			<a href="https://hrtcafe.net"><img src="/gif/tyg.gif" title="TRANS YOUR GENDER" alt="TRANS YOUR GENDER"
-					width="88" border="0" hspace="2" height="31"></a>
-			<a href="https://t.me/amyschat"><img src="/gif/telegram.gif" title="Telegram - a
-new era of messaging" alt="Telegram - a new era of messaging" width="88" border="0" hspace="2" height="31"></a><img
+			<a href="https://bsky.app/profile/memediatek.bsky.social"><img src="/gif/bluesky.gif" title="Bluesky" alt="Bluesky" width="88" border="0" hspace="2" height="31"></a>
+			<img
 				src="/gif/macos.gif" title="Made with MacOS" alt="Made with MacOS" width="88" border="0" hspace="2"
 				height="31">
+			<a href="https://sublimetext.com"><img src="/gif/sublime.gif" title="Made with Sublime Text Editor" alt="Made with Sublime Text Editor" width="88" border="0" hspace="2" height="31"></a>
+			<a href="https://t.me/amyschat"><img src="/gif/telegram.gif" title="Telegram - a
+new era of messaging" alt="Telegram - a new era of messaging" width="88" border="0" hspace="2" height="31"></a>
+			<img src="/gif/tyg.gif" title="TRANS YOUR GENDER" alt="TRANS YOUR GENDER"
+					width="88" border="0" hspace="2" height="31">
 		</div>
 	</font>
 </body>
